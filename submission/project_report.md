@@ -35,7 +35,7 @@ My video processing pipeline has following steps:
     right_lines=list(filter(lambda x: (x[3]>=x[1] and x[0]>480) ,lines.reshape((-1,4)).tolist()))
 ```
 
-8. Then using `sklearn.linear_model.LinearRegression`, I fit a linear regression model to each left and right lane lines. Using this modesl, I predict two line segments (left and right) as shown below:
+8. Then using `sklearn.linear_model.LinearRegression`, I fit a linear regression model to each left and right lane lines. Using these models, I predict two line segments (left and right) as shown below:
 
 ![mask](../output_images/reg.png)
 
@@ -62,4 +62,4 @@ Here are the YouTube video outputs showing the pipeline output:
 
 - This algorithm heavily relies on hardcoded threshold values, which might not work on all scenarios. Needs a robust technique to adaptively determine these numbers.
 - Depends on the assumption that lane lines are straight. Doesn't help to fit curved lines.
-- Each frames in the images is processed independently. This can be further improved by having previous lane line information, as video represents a time series event. Trackin the previously determined lane line might significantly speed up the process.
+- Each frames in the images is processed independently. This can be further improved by having previous lane line information, as video represents a time series event. Tracking the previously determined lane line might significantly speed up the process.
